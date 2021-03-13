@@ -6,11 +6,13 @@ import { BrowserRouter as Router,
 } from 'react-router-dom';
 import './App.css';
 
+// Components
 import Header from './Header';
+import NewIssue from './NewIssue';
 
 function App() {
   return (
-    <div className="App h-screen w-screen bg-gray-800">
+    <div className="App h-screen overflow-y-auto w-screen bg-gray-800">
       <Header></Header>
 
       <div className='w-5/6 h-2 mx-auto rounded
@@ -20,7 +22,7 @@ function App() {
       <Router>
         <Switch>
           <Route path="/newissue">
-            <p>TODO:NEWISSUEPAGE</p>
+            <NewIssue></NewIssue>
           </Route>
           <Route path="/issues">
             <p>TODO: SEARCH AND ISSUES LIST</p>

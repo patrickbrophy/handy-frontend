@@ -623,6 +623,20 @@ video {
   transition-duration: 200ms;
 }
 
+.input {
+  --tw-bg-opacity: 1;
+  background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
+  --tw-border-opacity: 1;
+  border-color: rgba(17, 24, 39, var(--tw-border-opacity));
+  border-radius: 0.375rem;
+  border-width: 2px;
+  height: 75%;
+  padding: 1rem;
+  resize: none;
+  width: 75%;
+  grid-row: span 2 / span 2
+}
+
 .space-y-0 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0px * calc(1 - var(--tw-space-y-reverse)));
