@@ -1,14 +1,15 @@
 import React from 'react';
 import './App.css';
 
+import Header from './Header';
+
 function App() {
   return (
     <div className="App h-screen w-screen bg-gray-800">
-      <div id='header' className='h-1/5 underlined'>
-        <div className='ml-6 w-1/5 underlined'>
-          <span className="text-9xl float-left">👐</span>
-          <h1 className='text-8xl pt-14 font-header'>Handy</h1>
-        </div>
+      <Header></Header>
+
+      <div className='w-5/6 h-2 mx-auto rounded
+      bg-gradient-to-r from-purple-800 to-purple-900'>
       </div>
 
       <div>
