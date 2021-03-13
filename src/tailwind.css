@@ -3,3 +3,21 @@
 @tailwind components;
 
 @tailwind utilities;
+
+@layer components {
+    .underlined {
+        @apply rounded-xl border-opacity-40 border-b-8 border-purple-800
+    }
+    
+    .landing-card {
+        @apply w-2/3 h-80 grid grid-rows-3 place-items-center 
+        border-2 border-gray-900 rounded-md 
+        hover:bg-gray-900 transition duration-300 ease-in-out
+    }
+    
+    .button {
+        @apply text-2xl p-3 
+        border-purple-900 border-4 rounded-lg 
+        hover:bg-purple-900 transition duration-200 ease-in-out
+    }
+}
