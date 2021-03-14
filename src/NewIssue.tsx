@@ -22,9 +22,6 @@ const NewIssue: React.FC = () => {
             <p>Tell us some information about the issue
                 you want worked on. The more the merrier!
             </p>
-            <span className='text-gray-500'>
-                (please separate list items by comma)
-            </span>
             <div className='h-5/6 grid grid-rows-5 place-items-center'>
                 <div className='row-span-2 h-4/5 w-full'>
                     <input className='input w-1/3 h-1/5 mb-2' 
@@ -38,12 +35,12 @@ const NewIssue: React.FC = () => {
 
                 <div className='w-full h-full grid grid-cols-2 place-items-center'>
                     <input className='input w-1/2 h-3/5' placeholder='Difficulty'></input>
-                    <input className='input w-1/2 h-3/5' placeholder='Skills'></input>
+                    <input className='input w-1/2 h-3/5' placeholder='Skill'></input>
                 </div>
 
                 <div className='w-full h-full grid grid-cols-2 
                 place-items-center items-baseline'>
-                    <input className='input w-1/2 h-3/5' placeholder='Languages'></input>
+                    <input className='input w-1/2 h-3/5' placeholder='Language'></input>
                     <input className='input w-1/2 h-3/5' placeholder='Link to issue'></input>
                 </div>
 

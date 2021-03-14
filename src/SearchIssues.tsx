@@ -7,8 +7,8 @@ interface Issue {
     title: string;
     description: string;
     difficulty: string;
-    skills: string;
-    languages: string;
+    skill: string;
+    language: string;
     link: string;
 }
 
@@ -22,8 +22,8 @@ const SearchIssues: React.FC = () => {
             title: 'Memory Leak in C Game',
             description: 'Running into an issue where there is a massive memory leak whenever a player jumps into the pipe',
             difficulty: 'Intermediate',
-            skills: 'Memory,Algorithms',
-            languages: 'C,C++',
+            skill: 'Memory',
+            language: 'C',
             link: 'https://www.google.com',
         }
         
@@ -43,9 +43,6 @@ const SearchIssues: React.FC = () => {
             <p className='my-6'>
                 This is so we can recommend you the best projects to tackle!
             </p>
-            <span className='text-gray-500'>
-                (please separate list items by comma)
-            </span>
             <div className='grid grid-rows-4 grid-cols-1
             h-1/3
             mx-auto place-items-center'>

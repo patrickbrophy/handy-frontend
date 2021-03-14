@@ -8,8 +8,8 @@ interface Issue {
     title: string;
     description: string;
     difficulty: string;
-    skills: string;
-    languages: string;
+    skill: string;
+    language: string;
     link: string;
 }
 
@@ -29,10 +29,10 @@ const IssueCard: React.FC<Props> = (props) => {
                 Difficulty: {props.issue.difficulty}
             </p>
             <p className='my-2'>
-                Skills: {props.issue.skills.split(',').join(', ')}
+                Skills: {props.issue.skill.split(',').join(', ')}
             </p>
             <p className='my-2'>
-                Skills: {props.issue.languages.split(',').join(', ')}
+                Skills: {props.issue.language.split(',').join(', ')}
             </p>
             <p>
                 Link: <a href={props.issue.link}
