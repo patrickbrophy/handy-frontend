@@ -13,7 +13,7 @@ import SearchIssues from './SearchIssues';
 import IssueCard, { Issue } from './IssueCard';
 
 interface APIResponse {
-  results: Issue[];
+  top3: Issue[];
 }
 
 function App() {
@@ -21,12 +21,12 @@ function App() {
 
   useEffect(() => {
     async function fetchData() {
-      const url = 'https://handy-os.herokuapp.com/api/something';
+      const url = 'https://handy-os.herokuapp.com/api/getpopular';
       try {
         const response = await fetch(url);
         const issuesData: APIResponse = await response.json();
 
-        const issues = (await issuesData).results;
+        const issues = (await issuesData).top3;
         updateIssues(issues);
       } catch {
         console.log('API not running');
@@ -88,11 +88,11 @@ function App() {
               
               {
                 (popularIssues.length !== 0)
-                ? <div className='w-1/3 mx-auto h-auto my-6 mt-12
+                ? <div className='w-2/3 mx-auto h-auto my-6 mt-12
                 bg-gray-800 hover:bg-gray-900
                 transition duration-300 ease-in-out
                 border-gray-900 border-2 rounded-md'>
-                    <h2 className='text-center text-5xl my-4'>Check Out These Popular Issues</h2>
+                    <h2 className='text-center text-5xl my-6'>Check Out These Popular Issues</h2>
                     {
                       popularIssues.map((issue, i) => {
                         return <IssueCard issue={issue} key={i}></IssueCard>

@@ -22,7 +22,9 @@ const IssueCard: React.FC<Props> = (props) => {
     const [liked, updateLiked] = useState(false);
 
     async function handleLike() {
-        const url = 'https://handy-os.herokuapp.com/api/something';
+        const url = 'https://handy-os.herokuapp.com/api/addstars';
+        
+        const amount = (liked) ? -1 : 1;
         const response = await fetch(url, {
             method: 'POST',
             mode: 'cors',
@@ -32,7 +34,10 @@ const IssueCard: React.FC<Props> = (props) => {
             },
             redirect: 'follow',
             referrerPolicy: 'no-referrer',
-            body: JSON.stringify(props.issue.id),
+            body: JSON.stringify({
+                amount,
+                id: props.issue.id
+            }),
         });
 
         const successData: Promise<APIResponse> = await response.json();
