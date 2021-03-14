@@ -3,7 +3,7 @@ import React from 'react';
 const Header: React.FC = () => {
     return (
         <div className='Header h-1/4 pb-0'>
-            <div className='mt-2 ml-6 w-1/4'>
+            <div className='mt-4 ml-6 w-1/4'>
                 <a href='/'>
                     <span className="text-9xl float-left">🔨✋</span>
                     <h1 className='text-8xl pt-14 font-header'>handy</h1>
