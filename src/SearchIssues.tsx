@@ -15,7 +15,7 @@ const SearchIssues: React.FC = () => {
                 This is so we can recommend you the best projects to tackle!
             </p>
             <span className='text-gray-500'>
-                (please separate items by comma)
+                (please separate list items by comma)
             </span>
             <div className='grid grid-rows-4 grid-cols-1
             h-1/3

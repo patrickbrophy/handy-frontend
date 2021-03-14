@@ -15,18 +15,21 @@ const NewIssue: React.FC = () => {
             <p>Tell us some information about the issue
                 you want worked on. The more the merrier!
             </p>
+            <span className='text-gray-500'>
+                (please separate list items by comma)
+            </span>
             <div className='h-5/6 grid grid-rows-5 place-items-center'>
                 <textarea className='input'
                 placeholder='Description of Issue'>
                 </textarea>
                 <div className='w-full h-full grid grid-cols-2 place-items-center'>
-                    <input className='input w-1/2 h-2/3' placeholder='Difficulty'></input>
-                    <input className='input w-1/2 h-2/3' placeholder='Skills'></input>
+                    <input className='input w-1/2 h-3/5' placeholder='Difficulty'></input>
+                    <input className='input w-1/2 h-3/5' placeholder='Skills'></input>
                 </div>
                 <div className='w-full h-full grid grid-cols-2 
                 place-items-center items-baseline'>
-                    <input className='input w-1/2 h-2/3' placeholder='Languages'></input>
-                    <input className='input w-1/2 h-2/3' placeholder='Link to issue'></input>
+                    <input className='input w-1/2 h-3/5' placeholder='Languages'></input>
+                    <input className='input w-1/2 h-3/5' placeholder='Link to issue'></input>
                 </div>
                 <button className='button'>Submit</button>
             </div>
