@@ -46,9 +46,9 @@ const SearchIssues: React.FC = () => {
             <div className='grid grid-rows-4 grid-cols-1
             h-1/3
             mx-auto place-items-center'>
-                <input className='row-span-1 input w-1/4' placeholder='Languages'></input>
+                <input className='row-span-1 input w-1/4' placeholder='Language'></input>
                 <input className='row-span-1 input w-1/4' placeholder='Proficiency'></input>
-                <input className='row-span-1 input w-1/4' placeholder='Skills'></input>
+                <input className='row-span-1 input w-1/4' placeholder='Skill'></input>
                 <button className='button'
                 onClick={() => searchIssues()}>
                     Find Issues
