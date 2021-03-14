@@ -12,6 +12,7 @@ interface Issue {
 }
 
 const SearchIssues: React.FC = () => {
+    const [searching, updateSearching] = useState(false);
     const [issues, updateIssues] = useState([] as Issue[]);
     
     // Refs for inputs
@@ -20,6 +21,8 @@ const SearchIssues: React.FC = () => {
     const skill = useRef<HTMLInputElement>(null);
 
     async function searchIssues() {
+        updateSearching(true);
+
         // TEMPORARY
         const url = 'Sl;df';
 
@@ -50,12 +53,13 @@ const SearchIssues: React.FC = () => {
             title: 'Memory Leak in C Game',
             description: 'Running into an issue where there is a massive memory leak whenever a player jumps into the pipe',
             difficulty: 'Intermediate',
-            skill: 'Memory',
+            skill: 'Algorithms',
             language: 'C',
             link: 'https://www.google.com',
         }
         
         updateIssues([testdata]);
+        updateSearching(false);
     }
 
     return (
@@ -86,8 +90,11 @@ const SearchIssues: React.FC = () => {
                 <input className='row-span-1 input w-1/4' placeholder='Skill'
                 ref={skill}></input>
 
-                <button className='button'
-                onClick={async () => await searchIssues()}>
+                <button className={(searching) ? 
+                'button bg-purple-900 animate-pulse' : 
+                'button'}
+                onClick={async () => await searchIssues()}
+                disabled={searching}>
                     Find Issues
                 </button>
             </div>
