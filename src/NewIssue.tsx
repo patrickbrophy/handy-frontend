@@ -1,6 +1,44 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 const NewIssue: React.FC = () => {
+
+    // Refs
+    const name = useRef<HTMLInputElement>(null);
+    const description = useRef<HTMLTextAreaElement>(null);
+    const difficulty = useRef<HTMLInputElement>(null);
+    const skill = useRef<HTMLInputElement>(null);
+    const language = useRef<HTMLInputElement>(null);
+    const link = useRef<HTMLInputElement>(null);
+
+    // Send new issue to API
+    async function sendIssue(): Promise<void> {
+        // TEMPORARY
+        const url = 'alsfdjk';
+
+        const data = {
+            name: (name.current as HTMLInputElement).value, 
+            description: (description.current as HTMLTextAreaElement).value, 
+            difficulty: (difficulty.current as HTMLInputElement).value,
+            skill: (skill.current as HTMLInputElement).value, 
+            language: (language.current as HTMLInputElement).value, 
+            link: (link.current as HTMLInputElement).value
+        };
+
+        /*
+        const response = await fetch(url, {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            redirect: 'follow',
+            referrerPolicy: 'no-referrer',
+            body: JSON.stringify(data),
+        });
+        */
+    }
+
     return (
         <div className='NewIssue w-2/3 h-2/3
         mx-auto mt-6 text-center
@@ -15,27 +53,35 @@ const NewIssue: React.FC = () => {
             <p>Tell us some information about the issue
                 you want worked on. The more the merrier!
             </p>
-            <span className='text-gray-500'>
-                (please separate list items by comma)
-            </span>
             <div className='h-5/6 grid grid-rows-5 place-items-center'>
                 <div className='row-span-2 h-4/5 w-full'>
                     <input className='input w-1/3 h-1/5 mb-2' 
-                    placeholder='Issue Name'></input>
+                    placeholder='Issue Name'
+                    ref={name}></input>
+
                     <textarea className='input'
-                    placeholder='Description of Issue'>
+                    placeholder='Description of Issue'
+                    ref={description}>
                     </textarea>
                 </div>
+
                 <div className='w-full h-full grid grid-cols-2 place-items-center'>
-                    <input className='input w-1/2 h-3/5' placeholder='Difficulty'></input>
-                    <input className='input w-1/2 h-3/5' placeholder='Skills'></input>
+                    <input className='input w-1/2 h-3/5' placeholder='Difficulty'
+                    ref={difficulty}></input>
+                    <input className='input w-1/2 h-3/5' placeholder='Skill'
+                    ref={skill}></input>
                 </div>
+
                 <div className='w-full h-full grid grid-cols-2 
                 place-items-center items-baseline'>
-                    <input className='input w-1/2 h-3/5' placeholder='Languages'></input>
-                    <input className='input w-1/2 h-3/5' placeholder='Link to issue'></input>
+                    <input className='input w-1/2 h-3/5' placeholder='Language'
+                    ref={language}></input>
+                    <input className='input w-1/2 h-3/5' placeholder='Link to issue'
+                    ref={link}></input>
                 </div>
-                <button className='button'>Submit</button>
+
+                <button className='button'
+                onClick={() => sendIssue()}>Submit</button>
             </div>
         </div>
     );
