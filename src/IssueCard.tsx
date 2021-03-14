@@ -5,7 +5,7 @@ interface Props {
 }
 
 interface Issue {
-    title: string;
+    name: string;
     description: string;
     difficulty: string;
     skill: string;
@@ -19,22 +19,24 @@ const IssueCard: React.FC<Props> = (props) => {
         mx-auto my-4 px-4 py-6 text-left
         bg-gray-800
         border-gray-900 border-2 rounded-md'>
-            <h2 className='text-2xl my-2'>
-                { props.issue.title }
+            <h2 className='text-3xl my-2'>
+                { props.issue.name }
             </h2>
-            <p className='text-gray-500 my-2'>
+            <div className='h-1
+            bg-gradient-to-r from-purple-800 to-purple-900'></div>
+            <p className='text-gray-500 my-2 text-lg'>
                 { props.issue.description }
             </p>
-            <p className='my-2'>
+            <p className='my-2 text-xl'>
                 Difficulty: {props.issue.difficulty}
             </p>
-            <p className='my-2'>
-                Skills: {props.issue.skill.split(',').join(', ')}
+            <p className='my-2 text-xl'>
+                Skill: {props.issue.skill.split(',').join(', ')}
             </p>
-            <p className='my-2'>
-                Skills: {props.issue.language.split(',').join(', ')}
+            <p className='my-2 text-xl'>
+                Language: {props.issue.language.split(',').join(', ')}
             </p>
-            <p>
+            <p className='my-2 text-xl'>
                 Link: <a href={props.issue.link}
                 className='text-purple-800 underline'>
                     {props.issue.link}
