@@ -1,6 +1,35 @@
 import React from 'react';
+import { useState } from 'react';
+
+import IssueCard from './IssueCard';
+
+interface Issue {
+    title: string;
+    description: string;
+    difficulty: string;
+    skills: string;
+    languages: string;
+    link: string;
+}
 
 const SearchIssues: React.FC = () => {
+    const [issues, updateIssues] = useState([] as Issue[]);
+
+    function searchIssues() {
+        console.log('searched!');
+        // DATA WILL COME FROM API, THIS IS FOR TESTING
+        const testdata: Issue = {
+            title: 'Memory Leak in C Game',
+            description: 'Running into an issue where there is a massive memory leak whenever a player jumps into the pipe',
+            difficulty: 'Intermediate',
+            skills: 'Memory,Algorithms',
+            languages: 'C,C++',
+            link: 'ayylmao.gov',
+        }
+        
+        updateIssues([testdata]);
+    }
+
     return (
         <div className='SearchIssues w-2/3 h-2/3 max-h-full
         mx-auto mt-6 text-center
@@ -23,7 +52,18 @@ const SearchIssues: React.FC = () => {
                 <input className='row-span-1 input w-1/4' placeholder='Languages'></input>
                 <input className='row-span-1 input w-1/4' placeholder='Proficiency'></input>
                 <input className='row-span-1 input w-1/4' placeholder='Skills'></input>
-                <button className='button'>Find Issues</button>
+                <button className='button'
+                onClick={() => searchIssues()}>
+                    Find Issues
+                </button>
+            </div>
+
+            <div>
+                {
+                    issues.map(issue => {
+                       return <IssueCard issue={issue}></IssueCard> 
+                    })
+                }
             </div>
         </div>
     );
