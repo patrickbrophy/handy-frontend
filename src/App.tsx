@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router,
   Switch,
   Route,
@@ -10,8 +10,28 @@ import './App.css';
 import Header from './Header';
 import NewIssue from './NewIssue';
 import SearchIssues from './SearchIssues';
+import IssueCard, { Issue } from './IssueCard';
+
+interface APIResponse {
+  results: Issue[];
+}
 
 function App() {
+  const [popularIssues, updateIssues] = useState([] as Issue[]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const url = 'https://handy-os.herokuapp.com/api/something';
+      const response = await fetch(url);
+      const issuesData: APIResponse = await response.json();
+
+      const issues = (await issuesData).results;
+      updateIssues(issues);
+    }
+    
+    fetchData();
+  }, []);
+
   return (
     <div className="App h-screen overflow-y-auto w-screen bg-gray-800">
       <Header></Header>
@@ -63,6 +83,9 @@ function App() {
               </div>
               
               <h2 className='text-center text-5xl my-4 mt-24'>Check Out These Popular Issues</h2>
+              <div>
+
+              </div>
             </div>
           </Route>
         </Switch>

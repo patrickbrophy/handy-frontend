@@ -4,7 +4,7 @@ interface Props {
     issue: Issue;
 }
 
-interface Issue {
+export interface Issue {
     id: string;
     name: string;
     description: string;
@@ -14,13 +14,32 @@ interface Issue {
     link: string;
 }
 
+interface APIResponse {
+    success: boolean;
+}
+
 const IssueCard: React.FC<Props> = (props) => {
     const [liked, updateLiked] = useState(false);
 
     async function handleLike() {
-        updateLiked(!liked);
+        const url = 'https://handy-os.herokuapp.com/api/something';
+        const response = await fetch(url, {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            redirect: 'follow',
+            referrerPolicy: 'no-referrer',
+            body: JSON.stringify(props.issue.id),
+        });
 
-        // senddata
+        const successData: Promise<APIResponse> = await response.json();
+        const succeeded = (await successData).success;
+
+        if (succeeded)
+            updateLiked(!liked);
     }
 
     return (
