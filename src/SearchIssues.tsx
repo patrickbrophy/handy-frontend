@@ -19,7 +19,7 @@ const SearchIssues: React.FC = () => {
     const proficiency = useRef<HTMLInputElement>(null);
     const skill = useRef<HTMLInputElement>(null);
 
-    function searchIssues() {
+    async function searchIssues() {
         // TEMPORARY
         const url = 'Sl;df';
 
@@ -87,7 +87,7 @@ const SearchIssues: React.FC = () => {
                 ref={skill}></input>
 
                 <button className='button'
-                onClick={() => searchIssues()}>
+                onClick={async () => await searchIssues()}>
                     Find Issues
                 </button>
             </div>

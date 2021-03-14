@@ -81,7 +81,7 @@ const NewIssue: React.FC = () => {
                 </div>
 
                 <button className='button'
-                onClick={() => sendIssue()}>Submit</button>
+                onClick={async () => await sendIssue()}>Submit</button>
             </div>
         </div>
     );
