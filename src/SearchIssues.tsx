@@ -7,6 +7,7 @@ interface APIResponse {
 }
 
 interface Issue {
+    id: string;
     name: string;
     description: string;
     difficulty: string;

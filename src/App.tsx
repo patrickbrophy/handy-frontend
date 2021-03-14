@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router,
   Switch,
   Route,
@@ -10,8 +10,32 @@ import './App.css';
 import Header from './Header';
 import NewIssue from './NewIssue';
 import SearchIssues from './SearchIssues';
+import IssueCard, { Issue } from './IssueCard';
+
+interface APIResponse {
+  top3: Issue[];
+}
 
 function App() {
+  const [popularIssues, updateIssues] = useState([] as Issue[]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const url = 'https://handy-os.herokuapp.com/api/getpopular';
+      try {
+        const response = await fetch(url);
+        const issuesData: APIResponse = await response.json();
+
+        const issues = (await issuesData).top3;
+        updateIssues(issues);
+      } catch {
+        console.log('API not running');
+      }
+    }
+
+    fetchData();
+  }, []);
+
   return (
     <div className="App h-screen overflow-y-auto w-screen bg-gray-800">
       <Header></Header>
@@ -30,7 +54,7 @@ function App() {
           </Route>
           <Route path="/">
             <div>
-              <h2 className='text-center my-6 text-5xl'>Who are you?</h2>
+              <h2 className='text-center my-6 text-5xl'>Who Are You?</h2>
 
                 <div className='grid grid-cols-2 content-evenly place-items-center text-center'>
                 <div className='landing-card'>
@@ -61,6 +85,22 @@ function App() {
                   </button>
                 </div>
               </div>
+              
+              {
+                (popularIssues.length !== 0)
+                ? <div className='w-2/3 mx-auto h-auto my-6 mt-12
+                bg-gray-800 hover:bg-gray-900
+                transition duration-300 ease-in-out
+                border-gray-900 border-2 rounded-md'>
+                    <h2 className='text-center text-5xl my-6'>Check Out These Popular Issues</h2>
+                    {
+                      popularIssues.map((issue, i) => {
+                        return <IssueCard issue={issue} key={i}></IssueCard>
+                      })
+                    }
+                </div>
+                : <div></div>
+              }  
             </div>
           </Route>
         </Switch>
