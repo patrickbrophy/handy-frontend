@@ -2,6 +2,10 @@ import React, { useState, useRef } from 'react';
 
 import IssueCard from './IssueCard';
 
+interface APIResponse {
+    results: Issue[];
+}
+
 interface Issue {
     title: string;
     description: string;
@@ -32,7 +36,7 @@ const SearchIssues: React.FC = () => {
             skill: (skill.current as HTMLInputElement).value,
         }
         
-        /*
+        
         const response = await fetch(url, {
             method: 'POST',
             mode: 'cors',
@@ -44,9 +48,11 @@ const SearchIssues: React.FC = () => {
             referrerPolicy: 'no-referrer',
             body: JSON.stringify(data),
         });
+
+        const issuesData:Promise<APIResponse> = await response.json();
+        const issues: Issue[] = (await issuesData).results;
+        updateIssues(issues);
         
-        updateIssues(response.tbd)
-        */
 
         // DATA WILL COME FROM API, THIS IS FOR TESTING
         const testdata: Issue = {
@@ -68,7 +74,7 @@ const SearchIssues: React.FC = () => {
         border-gray-900 border-2 rounded-md
         hover:bg-gray-900 transition duration-300 ease-in-out'>
             <h2 className='text-3xl my-4'>
-                Tell us About Yourself
+                Tell Us About Yourself
             </h2>
 
             <div className='w-1/5 h-2 mx-auto my-4 rounded

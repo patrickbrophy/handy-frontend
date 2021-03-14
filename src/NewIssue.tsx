@@ -1,6 +1,10 @@
 import React, { useRef, useState } from 'react';
 import { useHistory } from 'react-router';
 
+interface APIResponse {
+    success: boolean;
+}
+
 const NewIssue: React.FC = () => {
     const [loading, updateLoading] = useState(false);
     const history = useHistory();
@@ -29,7 +33,7 @@ const NewIssue: React.FC = () => {
             link: (link.current as HTMLInputElement).value
         };
 
-        /*
+        
         const response = await fetch(url, {
             method: 'POST',
             mode: 'cors',
@@ -41,7 +45,11 @@ const NewIssue: React.FC = () => {
             referrerPolicy: 'no-referrer',
             body: JSON.stringify(data),
         });
-        */
+        const successData: Promise<APIResponse> = await response.json();
+        const succeeded = (await successData).success;
+
+        if (!succeeded)
+            alert('Something went wrong!');
 
         updateLoading(false);
 
@@ -61,7 +69,7 @@ const NewIssue: React.FC = () => {
       bg-gradient-to-r from-purple-800 to-purple-900'>
             </div>
             <p>Tell us some information about the issue
-                you want worked on. The more the merrier!
+                you want worked on.
             </p>
             <div className='h-5/6 grid grid-rows-5 place-items-center'>
                 <div className='row-span-2 h-4/5 w-full'>
