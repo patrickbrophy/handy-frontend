@@ -24,7 +24,7 @@ const SearchIssues: React.FC = () => {
             difficulty: 'Intermediate',
             skills: 'Memory,Algorithms',
             languages: 'C,C++',
-            link: 'ayylmao.gov',
+            link: 'https://www.google.com',
         }
         
         updateIssues([testdata]);
@@ -58,7 +58,10 @@ const SearchIssues: React.FC = () => {
                 </button>
             </div>
 
-            <div>
+            <div className='w-2/5 h-2 mx-auto my-4 rounded
+      bg-gradient-to-r from-purple-800 to-purple-900'></div>
+
+            <div className='mt-12'>
                 {
                     issues.map(issue => {
                        return <IssueCard issue={issue}></IssueCard> 
