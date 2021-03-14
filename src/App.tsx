@@ -82,10 +82,21 @@ function App() {
                 </div>
               </div>
               
-              <h2 className='text-center text-5xl my-4 mt-24'>Check Out These Popular Issues</h2>
-              <div>
-
-              </div>
+              {
+                (popularIssues.length !== 0)
+                ? <div className='w-1/3 mx-auto h-auto my-6 mt-12
+                bg-gray-800 hover:bg-gray-900
+                transition duration-300 ease-in-out
+                border-gray-900 border-2 rounded-md'>
+                    <h2 className='text-center text-5xl my-4'>Check Out These Popular Issues</h2>
+                    {
+                      popularIssues.map((issue, i) => {
+                        return <IssueCard issue={issue} key={i}></IssueCard>
+                      })
+                    }
+                </div>
+                : <div></div>
+              }  
             </div>
           </Route>
         </Switch>
