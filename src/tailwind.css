@@ -17,13 +17,14 @@
     
     .button {
         @apply text-2xl p-3 
+        focus:outline-none
         border-purple-900 border-4 rounded-lg 
         hover:bg-purple-900 transition duration-200 ease-in-out
     }
     
     .input {
         @apply w-3/4 h-3/4 row-span-2
-                p-4
+                p-4 focus:outline-none focus:border-purple-900
                 bg-gray-800 border-gray-900 border-2 rounded-md
                 resize-none
     }
