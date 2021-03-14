@@ -9,6 +9,7 @@ import './App.css';
 // Components
 import Header from './Header';
 import NewIssue from './NewIssue';
+import SearchIssues from './SearchIssues';
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
             <NewIssue></NewIssue>
           </Route>
           <Route path="/issues">
-            <p>TODO: SEARCH AND ISSUES LIST</p>
+            <SearchIssues></SearchIssues>
           </Route>
           <Route path="/">
             <div>
