@@ -72,7 +72,7 @@ const SearchIssues: React.FC = () => {
             </h2>
 
             <div className='w-1/5 h-2 mx-auto my-4 rounded
-      bg-gradient-to-r from-purple-800 to-purple-900'></div>
+            bg-gradient-to-r from-purple-800 to-purple-900'></div>
 
             <p className='my-6'>
                 This is so we can recommend you the best projects to tackle!

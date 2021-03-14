@@ -1,6 +1,9 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
+import { useHistory } from 'react-router';
 
 const NewIssue: React.FC = () => {
+    const [loading, updateLoading] = useState(false);
+    const history = useHistory();
 
     // Refs
     const name = useRef<HTMLInputElement>(null);
@@ -12,6 +15,8 @@ const NewIssue: React.FC = () => {
 
     // Send new issue to API
     async function sendIssue(): Promise<void> {
+        updateLoading(true);
+
         // TEMPORARY
         const url = 'alsfdjk';
 
@@ -37,6 +42,11 @@ const NewIssue: React.FC = () => {
             body: JSON.stringify(data),
         });
         */
+
+        updateLoading(false);
+
+        // Return to landing page
+        history.push('/');
     }
 
     return (
@@ -80,8 +90,13 @@ const NewIssue: React.FC = () => {
                     ref={link}></input>
                 </div>
 
-                <button className='button'
-                onClick={async () => await sendIssue()}>Submit</button>
+                <button className={(loading) 
+                ? 'button bg-purple-900 animate-pulse'
+                : 'button'}
+                onClick={async () => await sendIssue()}
+                disabled={loading}>
+                    Submit
+                </button>
             </div>
         </div>
     );
