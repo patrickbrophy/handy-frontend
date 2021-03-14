@@ -7,7 +7,7 @@ interface APIResponse {
 }
 
 interface Issue {
-    title: string;
+    name: string;
     description: string;
     difficulty: string;
     skill: string;
@@ -27,8 +27,7 @@ const SearchIssues: React.FC = () => {
     async function searchIssues() {
         updateSearching(true);
 
-        // TEMPORARY
-        const url = 'Sl;df';
+        const url = 'https://handy-os.herokuapp.com/api/getissues';
 
         const data = {
             language: (language.current as HTMLInputElement).value,
@@ -51,26 +50,14 @@ const SearchIssues: React.FC = () => {
 
         const issuesData:Promise<APIResponse> = await response.json();
         const issues: Issue[] = (await issuesData).results;
-        updateIssues(issues);
-        
 
-        // DATA WILL COME FROM API, THIS IS FOR TESTING
-        const testdata: Issue = {
-            title: 'Memory Leak in C Game',
-            description: 'Running into an issue where there is a massive memory leak whenever a player jumps into the pipe',
-            difficulty: 'Intermediate',
-            skill: 'Algorithms',
-            language: 'C',
-            link: 'https://www.google.com',
-        }
-        
-        updateIssues([testdata]);
+        updateIssues(issues);
         updateSearching(false);
     }
 
     return (
-        <div className='SearchIssues w-2/3 h-2/3 max-h-full
-        mx-auto mt-6 text-center
+        <div className='SearchIssues w-2/3 h-auto overflow-y-auto
+        mx-auto mt-6 mb-4 text-center
         border-gray-900 border-2 rounded-md
         hover:bg-gray-900 transition duration-300 ease-in-out'>
             <h2 className='text-3xl my-4'>

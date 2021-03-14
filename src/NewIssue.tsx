@@ -21,8 +21,7 @@ const NewIssue: React.FC = () => {
     async function sendIssue(): Promise<void> {
         updateLoading(true);
 
-        // TEMPORARY
-        const url = 'alsfdjk';
+        const url = 'https://handy-os.herokuapp.com/api/createissue';
 
         const data = {
             name: (name.current as HTMLInputElement).value, 

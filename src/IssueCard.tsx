@@ -5,7 +5,7 @@ interface Props {
 }
 
 interface Issue {
-    title: string;
+    name: string;
     description: string;
     difficulty: string;
     skill: string;
@@ -20,7 +20,7 @@ const IssueCard: React.FC<Props> = (props) => {
         bg-gray-800
         border-gray-900 border-2 rounded-md'>
             <h2 className='text-3xl my-2'>
-                { props.issue.title }
+                { props.issue.name }
             </h2>
             <div className='h-1
             bg-gradient-to-r from-purple-800 to-purple-900'></div>
