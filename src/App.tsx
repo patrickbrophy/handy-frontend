@@ -22,13 +22,17 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       const url = 'https://handy-os.herokuapp.com/api/something';
-      const response = await fetch(url);
-      const issuesData: APIResponse = await response.json();
+      try {
+        const response = await fetch(url);
+        const issuesData: APIResponse = await response.json();
 
-      const issues = (await issuesData).results;
-      updateIssues(issues);
+        const issues = (await issuesData).results;
+        updateIssues(issues);
+      } catch {
+        console.log('API not running');
+      }
     }
-    
+
     fetchData();
   }, []);
 
