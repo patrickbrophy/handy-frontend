@@ -19,9 +19,13 @@ const NewIssue: React.FC = () => {
                 (please separate list items by comma)
             </span>
             <div className='h-5/6 grid grid-rows-5 place-items-center'>
-                <textarea className='input'
-                placeholder='Description of Issue'>
-                </textarea>
+                <div className='row-span-2 h-4/5 w-full'>
+                    <input className='input w-1/3 h-1/5 mb-2' 
+                    placeholder='Issue Name'></input>
+                    <textarea className='input'
+                    placeholder='Description of Issue'>
+                    </textarea>
+                </div>
                 <div className='w-full h-full grid grid-cols-2 place-items-center'>
                     <input className='input w-1/2 h-3/5' placeholder='Difficulty'></input>
                     <input className='input w-1/2 h-3/5' placeholder='Skills'></input>
