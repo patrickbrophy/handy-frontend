@@ -28,7 +28,7 @@ const SearchIssues: React.FC = () => {
 
         const data = {
             language: (language.current as HTMLInputElement).value,
-            proficiency: (proficiency.current as HTMLInputElement).value,
+            difficulty: (proficiency.current as HTMLInputElement).value,
             skill: (skill.current as HTMLInputElement).value,
         }
         
