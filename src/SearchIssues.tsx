@@ -99,7 +99,7 @@ const SearchIssues: React.FC = () => {
                 </button>
             </div>
 
-            <div className='w-2/5 h-2 mx-auto my-4 rounded
+            <div className='w-2/5 h-2 mx-auto my-8 rounded
       bg-gradient-to-r from-purple-800 to-purple-900'></div>
 
             <div className='mt-12'>

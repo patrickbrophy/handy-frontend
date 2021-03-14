@@ -27,5 +27,6 @@
                 p-4 focus:outline-none focus:border-purple-900
                 bg-gray-800 border-gray-900 border-2 rounded-md
                 resize-none
+                transition duration-300
     }
 }
