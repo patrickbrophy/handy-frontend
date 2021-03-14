@@ -30,7 +30,7 @@ function App() {
           </Route>
           <Route path="/">
             <div>
-              <h2 className='text-center my-6 text-5xl'>Who are you?</h2>
+              <h2 className='text-center my-6 text-5xl'>Who Are You?</h2>
 
                 <div className='grid grid-cols-2 content-evenly place-items-center text-center'>
                 <div className='landing-card'>
@@ -61,6 +61,8 @@ function App() {
                   </button>
                 </div>
               </div>
+              
+              <h2 className='text-center text-5xl my-4 mt-24'>Check Out These Popular Issues</h2>
             </div>
           </Route>
         </Switch>
